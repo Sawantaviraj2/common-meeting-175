@@ -1,0 +1,39 @@
+package com.Masai;
+
+public class Broker {
+	
+	
+	String userId = "Admin";
+	String password = "Admin123456";
+	Stock[] s ;
+	Customer[] c;
+	
+	public Broker() {
+		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public void checkCredential(String userId, String password){
+		
+		if(this.userId.equals(userId) && this.password.equals(password))
+		{
+			System.out.println("Broker/Admin Login Succsfully");
+		}
+		else {
+			System.out.println("Please Enter Correct Login Credential");
+		}
+	}
+	public void showStockList() {
+		
+		for(Stock i : s)
+		{
+			System.out.println(i.stockName+" "+i.stockPrice);
+		}
+	}
+	public void showCustomerList() {
+		for(Customer i : c)
+		{
+			System.out.println(i.cName+" "+i.numOfStocks);
+		}
+	}
+}

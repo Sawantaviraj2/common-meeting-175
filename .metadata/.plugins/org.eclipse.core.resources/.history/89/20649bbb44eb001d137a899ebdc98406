@@ -1,0 +1,13 @@
+package com.Masai;
+
+public class Stock {
+
+	String stockName;
+	double stockPrice;
+	
+	public Stock(String stockName, double stockPrice)
+	{
+		this.stockName = stockName;
+		this.stockPrice = stockPrice;
+	}
+}

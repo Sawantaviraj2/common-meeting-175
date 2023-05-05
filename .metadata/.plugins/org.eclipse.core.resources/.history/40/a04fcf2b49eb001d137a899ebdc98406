@@ -1,0 +1,11 @@
+package com.Masai;
+import java.util.ArrayList;
+import java.util.List;
+public class Customer {
+	String cName;
+	int cNumOfStocks;
+	String cUserId;
+	String cPassword;
+	int customerId;
+	
+}

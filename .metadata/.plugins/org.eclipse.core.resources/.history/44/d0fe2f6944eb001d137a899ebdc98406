@@ -1,0 +1,7 @@
+package com.Masai;
+
+public class Stock {
+
+	String stockName;
+	double stockPrice;
+}

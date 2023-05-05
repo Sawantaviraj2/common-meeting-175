@@ -1,0 +1,58 @@
+package com.Masai;
+import java.util.Scanner;
+public class Main {
+
+	public static void main(String[] args)
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1 : Login as Broker/Admin");
+		System.out.println("2 : Login as Customer");
+		int option = sc.nextInt();
+		sc.nextLine();
+		if(option == 1)
+		{
+			System.out.println("Enter User Name");
+			String userName = sc.nextLine();
+			System.out.println("Enter Password");
+			String pass = sc.nextLine();
+			
+			Broker B1 = new Broker();
+			boolean res = B1.checkCredential(userName, pass);
+			if(res == true)
+			{
+				System.out.println("Broker/Admin Login Succsfully");
+				
+				System.out.println("1 : showStockList");
+				System.out.println("2 : showCustomerList");
+				System.out.println("3 : Add Stock");
+				System.out.println("4 : Delete Stock");
+				System.out.println("5 : Delete Customer");
+				
+				int bchoice = sc.nextInt();
+				//sc.nextLine();
+				if(bchoice == 1)
+				{
+					B1.showStockList();
+				}
+				else if(bchoice == 2)
+				{
+					B1.showCustomerList();
+				}
+				else if(bchoice == 3)
+				{
+					System.out.println("Enter StockId");
+					int stockId = sc.nextInt();
+					sc.nextLine();
+					System.out.println("Please enter Stock_Name for Adding into Stock List");
+					String stockName = sc.nextLine();
+					System.out.println("Please enter Market Stock_Price");
+					double StockPrice = sc.nextDouble();
+					B1.addStock(stockId,stockName, StockPrice);
+				}
+			}
+			else {
+				System.out.println("Please Enter Correct Login Credential");
+			}
+		}
+	}
+}

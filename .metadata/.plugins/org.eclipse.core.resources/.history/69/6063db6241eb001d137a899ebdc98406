@@ -1,0 +1,27 @@
+package com.Masai;
+
+public class Broker {
+	
+	
+	String userId = "Admin";
+	String password = "Admin123456";
+	Stock[] s ;
+	Customer[] c;
+	
+	public Broker() {
+		// TODO Auto-generated constructor stub
+		
+	}
+	
+	public boolean checkCredential(String userId, String password){
+		
+		if(this.userId.equals(userId) && this.password.equals(password))
+		{
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+}

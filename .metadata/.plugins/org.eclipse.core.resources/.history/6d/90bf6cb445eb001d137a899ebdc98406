@@ -1,0 +1,60 @@
+package com.Masai;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Broker {
+	
+	
+	String userId = "Admin";
+	String password = "Admin123456";
+	List<Stock> s;
+	List<Customer> c;
+	
+	public Broker() {
+		// TODO Auto-generated constructor stub
+		this.s = new ArrayList<>();
+		this.c = new ArrayList<>();
+	}
+	
+	public boolean checkCredential(String userId, String password){
+		
+		if(this.userId.equals(userId) && this.password.equals(password))
+		{
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	public void showStockList() {
+		
+		for(Stock i : s)
+		{
+			System.out.println(i.stockName+" "+i.stockPrice);
+		}
+	}
+	public void showCustomerList() {
+		for(Customer i : c)
+		{
+			System.out.println(i.cName+" "+i.cNumOfStocks);
+		}
+	}
+	public void addStock(int stockId,String stockName, double stockPrice) 
+	{
+		Stock s1 = new Stock(stockId,stockName,stockPrice);
+		
+		for(Stock i : s)
+		{
+			if(i.stockId == stockId)
+			{
+				i.stockName = stockName;
+				i.stockPrice = stockPrice;
+				System.out.println("Stock is Allready Present in list only price is changed");
+				return;
+			}
+		}
+		s.add(s1);
+		System.out.println("Stock is added to List");
+	}
+}

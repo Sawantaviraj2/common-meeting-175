@@ -1,0 +1,11 @@
+package com.Masai;
+
+public class Customer {
+	String cName;
+	int cNumOfStocks;
+	String cUserId;
+	String cPassword;
+	int customerId;
+	
+	
+}
