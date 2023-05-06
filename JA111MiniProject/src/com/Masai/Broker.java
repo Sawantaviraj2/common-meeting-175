@@ -1,4 +1,5 @@
 package com.Masai;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 public class Broker {
@@ -7,7 +8,8 @@ public class Broker {
 	static List<Stock> s =  new ArrayList<>(); ;
 	
 	public Broker() {
-		
+		s.add(new Stock(1,"Tata",500.00));
+		s.add(new Stock(2,"Realince",560.00));
 	}
 	
 	public boolean checkCredential(String userId, String password){
@@ -32,9 +34,10 @@ public class Broker {
 		for(Customer i : Main.customers)
 		{
 			System.out.println(i.cName+" "+i.cNumOfStocks);
+			
 		}
 	}
-	public void addStock(int stockId,String stockName, double stockPrice) 
+	public void addStock(int stockId,String stockName, double stockPrice)
 	{
 		for(Stock i : s)
 		{
@@ -49,6 +52,7 @@ public class Broker {
 		Stock s1 = new Stock(stockId,stockName,stockPrice);
 		s.add(s1);
 		System.out.println("Stock is added to Stock List");
+		//Main.serializationBs();
 	}
 	public void deleteStock(int stockId)
 	{
@@ -63,8 +67,9 @@ public class Broker {
 			}
 		}
 		System.out.println("Stock is not Present in Stock List");
+		//Main.serializationBs();
 	}
-	public void deleteCustomer(int customerId)
+	public void deleteCustomer(int customerId) 
 	{
 		for(Customer i : Main.customers)
 		{
@@ -77,5 +82,6 @@ public class Broker {
 			}
 		}
 		System.out.println("customer is not Present in customer List");
+		//Main.serializationcus();
 	}
 }
