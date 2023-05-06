@@ -11,9 +11,7 @@ public class Broker {
 		s.add(new Stock(1,"Tata",500.00));
 		s.add(new Stock(2,"Realince",560.00));
 	}
-	
 	public boolean checkCredential(String userId, String password){
-		
 		if(this.userId.equals(userId) && this.password.equals(password))
 		{
 			

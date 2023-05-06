@@ -64,6 +64,7 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		String pass = sc.nextLine();
 		
 		int cheack =0;
+		
 		for(Customer i : customers)
 		{
 			if(i.cUserId.equals(userName) && i.cPassword.equals(pass))
@@ -85,6 +86,7 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		System.out.println("Custumer Details");
 		
 		System.out.println(i.customerId+" "+i.cName);
+		
 		if(i.cS != null)
 		{
 			for(Stock j : i.cS)
@@ -97,19 +99,28 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		}
 		System.out.println("1 : Purchase New Stock");
 		System.out.println("2 : Sell Stock");
-		System.out.println("3 : Exit to main Manu");
+		System.out.println("3 :LogOut");
 		
 		int Cusin = sc.nextInt();
 		
 		if(Cusin == 1)
 		{
-//			Broker b = new Broker();
+			Broker b = new Broker();
+			
 			for(Stock j : Broker.s )
 			{
 				System.out.println(j.stockId+" "+j.stockName+" "+j.stockPrice);
 			}
+			
 			System.out.println("Enter Stock id");
+			System.out.println("0: for main Manu");
+			
 			int si = sc.nextInt();
+			if(si == 0)
+			{
+				LoginSuccessfully(i,sc);
+			}
+			else {
 			int c = 0;
 			for(Stock j : i.cS)
 			{
@@ -124,34 +135,57 @@ static ArrayList<Customer> customers = new ArrayList<>();
 			}
 			else 
 			{
-				Stock newS = null;
+//				Stock newS = null;
 				for(Stock j : Broker.s )
 				{
+					
 					if(j.stockId == si)
 					{
-						newS = j;
+						
+						i.cS.add(j);
+						System.out.println("Stock Purchased");
 					}
 				}
-				i.cS.add(newS);
+			}
+			LoginSuccessfully(i,sc);
 			}
 		}
 		else if(Cusin == 2)
 		{
+//			for(Stock s : i.cS)
+//			{
+//				System.out.println(st.stockId+" "+st.stockName+" "+st.stockPrice);
+//			}
+			for(Stock st : i.cS)
+			{
+				System.out.println(st.stockId+" "+st.stockName+" "+st.stockPrice);
+			}
 			System.out.println("Enter Stock Id for Sell");
+			System.out.println("0: for main Manu");
+			
 			int sellid = sc.nextInt();
 			
-			for(Stock j : i.cS)
+			if(sellid == 0 )
 			{
-				if(j.stockId == sellid)
+				LoginSuccessfully(i,sc);
+			}
+			else {
+				System.out.println("Stock Selled");
+				
+				for(Stock j : i.cS)
 				{
-					i.cS.remove(j);
-					System.out.println("Stock Selled");
+					if(j.stockId == sellid)
+					{
+						i.cS.remove(j);
+						System.out.println("Stock Selled");
+					}
 				}
 			}
+			LoginSuccessfully(i,sc);
 		}
 		else if(Cusin == 3)
 		{
-			LoginSuccessfully(i,sc);
+			runProgram(sc);
 		}
 	}
 
@@ -179,6 +213,7 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		// TODO Auto-generated method stub
 		System.out.println("1 : showStockList");
 		System.out.println("2 : showCustomerList");
+		System.out.println("3 : Log Out");
 		int bchoice = sc.nextInt();
 		if(bchoice == 1)
 		{
@@ -187,6 +222,10 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		else if(bchoice == 2)
 		{
 			ShowBrokerCusList(B1,sc);
+		}
+		else if(bchoice == 3)
+		{
+			runProgram(sc);
 		}
 		
 	}
@@ -217,6 +256,7 @@ static ArrayList<Customer> customers = new ArrayList<>();
 		
 		System.out.println("1 : Add Stock");
 		System.out.println("2 : Delete Stock");
+		System.out.println("3 :  All Options");
 		
 		int A_D_stock = sc.nextInt();
 		
@@ -237,6 +277,10 @@ static ArrayList<Customer> customers = new ArrayList<>();
 			int stockId = sc.nextInt();
 			B1.deleteStock(stockId);
 		}
+		else if(A_D_stock == 3)
+		{
+			BrokerLoginSucces(B1,sc);
+		}
 		
 		System.out.println("Enter 0 for All Options");
 		int op = sc.nextInt();
@@ -248,6 +292,8 @@ static ArrayList<Customer> customers = new ArrayList<>();
 	public static void main(String[] args)
 	{
 		Scanner sc = new Scanner(System.in);
+		customers.add(new Customer("Aviraj","sawantaviraj2@gmail.com","Avi@1",0));
+		customers.add(new Customer("Rahul","Rahul72@gmail.com","Rahul#1",0));
 		runProgram(sc);
 	}
 

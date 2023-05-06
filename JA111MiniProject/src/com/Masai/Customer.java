@@ -21,7 +21,7 @@ public class Customer {
 		this.cPassword = cPassword;
 		this.cNumOfStocks = cNumOfStocks;
 		this.customerId = customerId;
-		this.cS = null;
+		this.cS = new ArrayList<>();
 	}
 	
 }
