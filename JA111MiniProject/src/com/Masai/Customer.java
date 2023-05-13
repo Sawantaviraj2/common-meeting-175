@@ -15,7 +15,7 @@ public class Customer {
 	}
 	public Customer(String cName,String cUserId,String cPassword,int cNumOfStocks)
 	{
-		i++;
+		Customer.i++;
 		this.cName = cName;
 		this.cUserId = cUserId;
 		this.cPassword = cPassword;
